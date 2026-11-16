@@ -167,7 +167,45 @@ def showAllStudent():
         print(f"Age: {x['age']}")
 
         print("-" * 30)
+        
+def filterByAge():
 
+    if not students:
+        print("Students empty try add students")
+        return
+    try:
+        while True:
+            print("""
+
+            ----- Filter by Age -----
+            
+            1. Ascending
+            2. Decreasing
+            3. Exit
+            
+            
+            """)
+
+            choice = getInt("Enter Choice; ")
+
+            if choice == 1:
+                students.sort(key=lambda student: student["age"])
+
+                print("Filtered by Ascending.")
+
+            elif choice == 2:
+                students.sort(key=lambda student: student["age"], reverse=True)
+
+                print("Filtered by Decreasing.")
+
+            elif choice == 3:
+                print("Closing..")
+                return
+
+            else:
+                print("Invalid choice! Try again..")
+    except Exception as e:
+        print("Error Found;", e)
 
     
 
