@@ -31,3 +31,100 @@ def addStudent():
 
     except Exception as e:
         print("Error Found; ", e)
+
+def removeStudent():
+
+    if not students:
+        print("Students empty try add students")
+        return
+    
+    try:
+        getID = getInt("Enter ID")
+        found = False
+
+        for x in students:
+            if x["id"] == getID:
+                found = True
+                students.remove(x)
+
+                print(f"{x['name']} Named student successfuly removed.")
+                return
+
+        if not found:
+            print("Student Not Found..")
+
+    except Exception as e:
+        print("Error found; ", e)
+
+def updateStudent():
+
+    if not students:
+        print("Students empty try add students")
+        return
+
+    try:
+        getID = getInt("Enter Student ID: ")
+        found = False
+
+        for x in students:
+            if x["id"] == getID:
+                found = True
+            
+                while True:
+                    print("""
+                        ----- UPDATE STUDENTS -----
+
+                        1. Update Name
+                        2. Update Surname
+                        3. Update Age
+                        4. Exit & Save
+                    """)
+
+                    choice = getInt("Enter Choice: ")
+
+                    if choice == 1:
+                        newName = getText("Enter New Name; ")
+                        if newName == x["name"]:
+                            print("New name same with old name try again.")
+                            continue
+                        else:
+                            x["name"] = newName
+
+                    elif choice == 2:
+                        newSurname = getText("Enter New Surname; ")
+                        if newSurname == x["surname"]:
+                            print("New surname same with old surname try again.")
+                            continue
+                        else:
+                            x["surname"] = newSurname
+
+                    elif choice == 3:
+                        newAge = getInt("Enter New Age; ")
+                        if newAge == x["age"]:
+                            print("New age same with old age try again.")
+                            continue
+                        elif newAge < 16:
+                            print("Age not compitable atleast must be 16 try again.")
+                            continue
+                        else:
+                            x["age"] = newAge
+
+                    elif choice == 4:
+                        print("Closing & Saving...")
+                        return
+
+                    else:
+                        print("Invalid choice! Try again..")
+
+        if not found:
+            print("Student Not Found..")
+                           
+
+    except Exception as e:
+        print("Error Found; ", e)              
+
+        
+
+    
+
+        
