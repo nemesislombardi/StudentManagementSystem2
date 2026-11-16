@@ -13,8 +13,8 @@ while True:
 3. Update Student
 4. Find Student by ID
 5. Show All Students
-6. Manuel Save Students to CSV / JSON
-7. Manuel Load Students from CSV / JSON
+6. Show CSV Data
+7. Manuel Save Students to CSV / JSON
 8. Exit & Save
     
     ''')
@@ -42,6 +42,11 @@ while True:
         input("\nPress ENTER to continue...")
 
     elif choice == 6:
+        showCSV()
+        print("Data successfully loaded from CSV.")
+        input("\nPress ENTER to continue...")
+
+    elif choice == 7:
         while True:
             print("""
             
@@ -57,63 +62,35 @@ while True:
             choice0 = getInt("Enter Choice: ")
 
             if choice0 == 1:
-                saveCSV()
+                saveCSV(students)
                 print("Data successfuly saved to CSV")
 
 
             elif choice0 == 2:
-                saveFile()
+                saveFile(students)
                 print("Data successfuly saved to JSON")
                 
 
             elif choice0 == 3:
-                saveFile()
-                saveCSV()
+                saveFile(students)
+                saveCSV(students)
                 print("Data successfuly saved to JSON and CSV")
                 
 
             elif choice0 == 4:
                 print("Closing..")
-                input("\nPress ENTER to continue...")
+                break
 
 
             else:
                 print("Something went wrong")
-                input("\nPress ENTER to continue...")
 
-    elif choice == 6:
-        while True:
-            print("""
-            
-            --- Manuel Load from CSV or JSON ---
-
-            1. Load From CSV
-            2. Load From JSON
-            3. Exit
-            
-            """)
-
-            choice0 = getInt("Enter Choice: ")
-
-            if choice0 == 1:
-                loadFile()
-
-            elif choice0 == 2:
-                loadFile()
-
-            elif choice0 == 3:
-                print("Closing..")
-                input("\nPress ENTER to continue...")
-
-            else:
-                print("Something went wrong")
-                input("\nPress ENTER to continue...")
-
+        input("\nPress ENTER to continue...")
 
     elif choice == 8:
-        saveFile()
-        saveCSV()
-        print("Saving..\n")
+        saveFile(students)
+        saveCSV(students)
+        print("Saving..")
         print("Closing..")
         break
 

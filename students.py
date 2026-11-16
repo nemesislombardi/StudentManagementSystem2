@@ -39,7 +39,7 @@ def removeStudent():
         return
     
     try:
-        getID = getInt("Enter ID")
+        getID = getInt("Enter ID: ")
         found = False
 
         for x in students:
@@ -130,7 +130,7 @@ def findStudent():
         return
 
     try:
-        getID = getInt("Enter ID")
+        getID = getInt("Enter ID: ")
         found = False
 
 
@@ -167,7 +167,7 @@ def showAllStudent():
         print(f"Age: {x['age']}")
 
         print("-" * 30)
-        
+
 def filterByAge():
 
     if not students:
