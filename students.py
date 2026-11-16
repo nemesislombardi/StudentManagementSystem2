@@ -123,7 +123,51 @@ def updateStudent():
     except Exception as e:
         print("Error Found; ", e)              
 
+def findStudent():
+
+    if not students:
+        print("Students empty try add students")
+        return
+
+    try:
+        getID = getInt("Enter ID")
+        found = False
+
+
+        for x in students:
+            if x["id"] == getID:
+                found = True
+
+                print("-" * 30)
+                print(f"ID: {x['id']}")
+                print(f"Name: {x['name']}")
+                print(f"Surname: {x['surname']}")
+                print(f"Age: {x['age']}")
+                print("-" * 30)
+                break
         
+        if not found:
+            print("Student Not Found..")
+
+    except Exception as e:
+        print("Error found; ", e)
+
+def showAllStudent():
+
+    if not students:
+        print("Students empty try add students")
+        return
+
+    for x in students:
+        print("-" * 30)
+
+        print(f"ID: {x['id']}")
+        print(f"Name: {x['name']}")
+        print(f"Surname: {x['surname']}")
+        print(f"Age: {x['age']}")
+
+        print("-" * 30)
+
 
     
 
