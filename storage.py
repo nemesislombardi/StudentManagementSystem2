@@ -8,9 +8,6 @@ def saveFile(file):
         with open(studentsJSON, "w", encoding="utf-8")as f:
             json.dump(file, f, indent=4)
 
-            print("Data successfuly saved.\n")
-
-
     except Exception as e:
         print("Error Found; ", e)
 
